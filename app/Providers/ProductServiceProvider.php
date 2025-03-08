@@ -12,24 +12,25 @@ class ProductServiceProvider extends ServiceProvider
      */
     public function register(): void
     {
-        $this -> app -> singleton(ProductService::class, function($app){
+        $this->app->singleton(ProductService::class, function($app){
             $products = [
                 [
                     'id' => 1,
-                    'name' => 'Tomato',
-                    'category' => 'Fruits'
+                    'name' => 'Avocado',
+                    'category' => 'Fruit'
                 ],
                 [
                     'id' => 2,
-                    'name' => 'Carrot',
+                    'name' => 'Sweet Potato',
                     'category' => 'Vegetable'
                 ],
                 [
                     'id' => 3,
-                    'name' => 'Sweet Potato',
-                    'category' => 'Vegetable'
-                ]
+                    'name' => 'Tomato',
+                    'category' => 'Fruit'
+                ],
             ];
+            return new ProductService($products);
         });
     }
 
@@ -38,6 +39,6 @@ class ProductServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        //
+        view()->share('productKey', 'Goose');
     }
 }

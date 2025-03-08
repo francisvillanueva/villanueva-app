@@ -1,6 +1,7 @@
 <?php
 namespace App\Services;
 
+
 class ProductService{
     protected $products;
 
@@ -13,6 +14,8 @@ class ProductService{
     }
 
     public function insert($products){
-        return $this -> products[] = $products;
+        return $this->products[] = $products;
     }
+
+
 }
