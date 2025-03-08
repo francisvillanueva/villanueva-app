@@ -16,22 +16,14 @@ class UserServiceProvider extends ServiceProvider
             
             $users = [
                 [
-                    'id' => 1,
                     'name' => 'John Doe',
                     'gender' => 'Male',
                     'studno' => '22-00786'
                 ],
                 [
-                    'id' => 2,
                     'name' => 'Jane Doe',
                     'gender' => 'Female',
                     'studno' => '22-00687'
-                ],
-                [
-                    'id' => 3,
-                    'name' => 'Johnatan Doe',
-                    'gender' => 'Male',
-                    'studno' => '22-00678'
                 ]
             ];
 
