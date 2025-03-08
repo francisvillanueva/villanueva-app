@@ -2,12 +2,14 @@
 
 namespace App\Http\Controllers;
 
+use App\Services\ProductService;
+use App\Services\TaskService;
 use Illuminate\Http\Request;
 use App\Services\UserService;
 
 class UserController extends Controller{
     public function index(UserService $userService){
-        return $userService -> listUsers();
+        return $userService->listUsers();
     }
 
     public function first(UserService $userService){

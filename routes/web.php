@@ -1,5 +1,8 @@
 <?php
 
+use App\Http\Controllers\ProductController;
+use App\Providers\ProductServiceProvider;
+use App\Services\ProductService;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Responses;
@@ -66,4 +69,13 @@ Route::get('/test-users', [UserController::class, 'index']);
 
 Route::get('/test-facade', function (UserService $userService){
     return Response::json($userService -> listUsers());
+});
+
+Route::get ('/users', [UserController::class, 'index']) -> middleware('user-middleware');
+
+Route::resource('products', ProductController::class);
+
+Route::get('product-list', function(ProductService $productService){
+    $data['products'] = $productService->listProducts();
+    return view('products.list', $data);
 });
