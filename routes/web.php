@@ -9,8 +9,11 @@ use Illuminate\Support\Facades\Response;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('welcome', ['name' => 'Villanueva-App']);
 });
+
+Route::get('/users', [UserController::class, 'index']);
+Route::resource('products', ProductController::class);
 
 Route::get('test-container', function (Request $request) {
     return $request->input('key');
@@ -66,9 +69,9 @@ Route::post('token', function (Request $request) {
     return $request->all();
 });
 
-Route::get('users', [UserController::class, 'index'])->middleware('user-middleware');
+//Route::get('users', [UserController::class, 'index'])->middleware('user-middleware');
 
-Route::resource('products', ProductController::class);
+//Route::resource('products', ProductController::class);
 
 Route::get('product-list', function (ProductService $productService) {
     $data['products'] = $productService->listProducts();

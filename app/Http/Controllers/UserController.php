@@ -9,7 +9,7 @@ use App\Services\UserService;
 
 class UserController extends Controller{
     public function index(UserService $userService){
-        return $userService->listUsers();
+        return view('users.index', ['users' => $userService->listUsers()]);
     }
 
     public function first(UserService $userService){
